@@ -67,14 +67,14 @@ local plugins = {
       require("neotest").setup {
         adapters = {
           require "neotest-vitest",
-          require "neotest-jest" {
-            jestCommand = "npm test --",
-            jestConfigFile = "custom.jest.config.ts",
-            env = { CI = true },
-            cwd = function(path)
-              return vim.fn.getcwd()
-            end,
-          },
+          -- require "neotest-jest" {
+          --   jestCommand = "npm test --",
+          --   jestConfigFile = "custom.jest.config.ts",
+          --   env = { CI = true },
+          --   cwd = function(path)
+          --     return vim.fn.getcwd()
+          --   end,
+          -- },
         },
       }
     end,
@@ -139,7 +139,7 @@ local plugins = {
     "folke/neodev.nvim",
     config = function()
       require("neodev").setup {
-        library = { plugins = { "nvim-dap-ui" }, types = true },
+        library = { plugins = { "nvim-dap-ui", "neotest" }, types = true },
       }
     end,
   },
